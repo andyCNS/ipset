@@ -11,9 +11,12 @@ parser.add_option("-i", dest="ipnet", default="127.0.0.1/24", help="Set IP Addre
 
 options, args = parser.parse_args()
 
-ipnet= options.ipnet
+try:
+	ipnet= options.ipnet
 
-ip = IP(ipnet, make_net=True)
-for x in ip:
-	print(x)
+	ip = IP(ipnet, make_net=True)
+	for x in ip:
+		print(x)
+except:
 
+	print ("\nLooks like there has been an error - check input")
